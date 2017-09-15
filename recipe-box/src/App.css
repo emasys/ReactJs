@@ -1,0 +1,51 @@
+.addBtn {
+    margin-top: 5px;
+}
+
+* {
+    font-weight: bold;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.form {
+    padding: 20px;
+    background-color: gainsboro;
+}
+
+.heading {
+    font-weight: bolder;
+}
+
+.heading a {
+    color: black;
+}
+
+.space {
+    padding: 5px;
+    margin: 5px;
+}
+
+.btnSpace {
+    margin: 5px;
+}
+
+.header {
+    background: yellow;
+    margin: 0;
+    padding: 50px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.header h1 {
+    font-weight: bolder;
+    color: black;
+    text-shadow: 0 1px 0 yellow, 0 2px 3px rgba(0, 0, 0, 0.7);
+}
