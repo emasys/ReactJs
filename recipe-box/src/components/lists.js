@@ -56,23 +56,27 @@ class Lists extends Component {
       .reset
       .bind(this);
 
+    this.cancel = this
+      .cancel
+      .bind(this);
+
   }
 
   componentDidMount() {
 
-    let memory = JSON.stringify(this.state.list);
-    let memorys = JSON.stringify(this.state.lists);
-    if (memorys) {}
-    localStorage.setItem('_emasys_', memory);
-    let retrieve = localStorage.getItem('_emasys_');
-    // const x = JSON.parse(retrieve);
-    this.setState({lists: retrieve})
-    console.log(this.state.lists);
+    // let memory = JSON.stringify(this.state.list); let memorys =
+    // JSON.stringify(this.state.lists); if (memorys) {}
+    // localStorage.setItem('_emasys_', memory); let retrieve =
+    // localStorage.getItem('_emasys_'); // const x = JSON.parse(retrieve);
+    // this.setState({lists: retrieve}) console.log(this.state.lists);
 
   }
 
   showForm() {
     this.setState({status: 'show'})
+  }
+  cancel() {
+    this.setState({status: 'hide'})
   }
   handleForm(e) {
     e.preventDefault();
@@ -85,8 +89,21 @@ class Lists extends Component {
         ingredients: ing
       };
 
-    list.push(item);
+    if (item.food !== '') {
+      list.push(item);
+    } else {
+      item = {
+        food: 'No title',
+        ingredients: []
+      }
+
+      list.push(item);
+
+    }
+    this.setState({title: '', ing: ''})
+
     console.log("submitted")
+    this.reset();
   }
 
   setTitle(e) {
@@ -102,7 +119,6 @@ class Lists extends Component {
 
   reset() {
     this.setState({title: '', ing: ''});
-    console.log("mouse out")
   }
   editTitle(e) {
     e = e || window.event;
@@ -120,7 +136,6 @@ class Lists extends Component {
     }
 
     this.setState({title: title, ing: ing});
-    console.log("mouse in");
   }
 
   editPanel() {
@@ -154,17 +169,13 @@ class Lists extends Component {
 
       }
     }
-    this.componentDidMount();
-    // this.save();
-
+    this.setState({edit: false})
   }
   generateList() {
     let id = 1,
-      v = JSON.parse(this.state.lists),
       list = this.state.list;
-    console.log(v);
 
-    if (v) {
+    if (list) {
       return (
         <ul className="collapsible" data-collapsible="accordion">
           {list.map((item) => {
@@ -239,16 +250,17 @@ class Lists extends Component {
       <div>
         {this.generateList()}
         <a
+          href="#form"
           className="btn-floating btn-small btnSpace waves-effect waves-light red right"
           onClick={this.showForm}>
           <i className="material-icons">add</i>
         </a>
-        <div className={`row ${this.state.status}`}>
+        <div className={`row ${this.state.status}`} id="form">
           <form className="col s12" onSubmit={this.handleForm}>
             <div className="row">
               <div className="input-field col s12">
                 <input
-                  id="first_name2"
+                  defaultValue={this.state.title}
                   type="text"
                   className="validate"
                   onChange={this.setTitle}/>
@@ -259,15 +271,21 @@ class Lists extends Component {
             <div className="row">
               <div className="input-field col s12">
                 <textarea
-                  id="textarea1"
+                  defaultValue={this.state.ing}
                   className="materialize-textarea"
                   onChange={this.setIngredients}></textarea>
                 <label >separate your list with ,</label>
               </div>
             </div>
 
-            <button className="btn waves-effect waves-light" type="submit" name="action">Submit
+            <button className="btn waves-effect waves-light red" type="submit">Submit
               <i className="material-icons right">send</i>
+            </button>
+            <button
+              className="btn waves-effect waves-light right red "
+              onClick={this.cancel}
+              type="button">cancel
+              <i className="material-icons right">cancel</i>
             </button>
           </form>
         </div>
