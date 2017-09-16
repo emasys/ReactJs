@@ -21,7 +21,7 @@ class Subscribe extends Component {
     }
 
     saveList = async(email) => {
-        const URL_EMAIL = ' http://localhost:3001/subcriptions';
+        const URL_EMAIL = ' http://localhost:5001/subcriptions';
         const res = await fetch(URL_EMAIL, {
             method: 'post',
             headers: {
@@ -30,7 +30,6 @@ class Subscribe extends Component {
             },
             body: JSON.stringify({email})
         });
-        const data = await res.json();
         this.setState({email: ''});
     }
 
