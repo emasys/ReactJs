@@ -15,12 +15,16 @@ class Poll extends Component {
     this.renderPoll = this
       .renderPoll
       .bind(this);
+
+    this.addCount = this
+      .addCount
+      .bind(this);
   }
 
   fetchPoll = async() => {
     const res = await fetch(`${URL_POLL}?poll=true&sort=count&_order=desc`, {method: 'GET'});
     const data = await res.json();
-    this.setState({polls: data});
+     this.setState({polls: data});
   }
 
   componentDidMount() {

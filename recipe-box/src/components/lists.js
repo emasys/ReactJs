@@ -11,11 +11,8 @@ class Lists extends Component {
       lists: retrieve,
       list: [
         {
-          food: 'demo',
-          ingredients: ['water']
-        }, {
-          food: 'demo2',
-          ingredients: ['water', 'vegetable oil']
+          food: '',
+          ingredients: []
         }
       ],
       status: 'hide'
@@ -172,14 +169,12 @@ class Lists extends Component {
     this.setState({edit: false})
   }
   generateList() {
-    let id = 1,
-      list = this.state.list;
+    let list = this.state.list;
 
     if (list) {
       return (
         <ul className="collapsible" data-collapsible="accordion">
-          {list.map((item) => {
-            id++;
+          {list.map((item, id) => {
             return (
               <li key={id}>
                 <div className="collapsible-header" id={id} onClick={this.editTitle}>

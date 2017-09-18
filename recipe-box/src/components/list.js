@@ -1,12 +1,11 @@
 import React from 'react';
 
 const generateList = ({list}) => {
-  let id = 0;
+
   if (list) {
     return (
       <ul className="collapsible" data-collapsible="accordion">
-        {list.map((item) => {
-          id++;
+        {list.map((item, id) => {
           return (
             <li key={id}>
               <div className="collapsible-header">
