@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-let retrieve = localStorage.getItem('_emasys_');
 class Lists extends Component {
   constructor(props) {
     super(props);
@@ -8,7 +7,7 @@ class Lists extends Component {
       edit: false,
       title: '',
       ing: '',
-      lists: retrieve,
+      lists: [],
       list: [
         {
           food: '',
@@ -60,12 +59,13 @@ class Lists extends Component {
   }
 
   componentDidMount() {
+    console.log(this.state.lists);
 
     // let memory = JSON.stringify(this.state.list); let memorys =
     // JSON.stringify(this.state.lists); if (memorys) {}
     // localStorage.setItem('_emasys_', memory); let retrieve =
-    // localStorage.getItem('_emasys_'); // const x = JSON.parse(retrieve);
-    // this.setState({lists: retrieve}) console.log(this.state.lists);
+    // localStorage.getItem('_emasys_'); const x = JSON.parse(retrieve);
+    // this.setState({lists: retrieve}); console.log(this.state.lists);
 
   }
 
@@ -87,7 +87,16 @@ class Lists extends Component {
       };
 
     if (item.food !== '') {
+
       list.push(item);
+      let memory = JSON.stringify(list);
+      localStorage.setItem('_emasys_', memory);
+      let retrieve = (localStorage.getItem('_emasys_'))
+      // const x = JSON.parse(retrieve); this.setState({lists: retrieve});
+      this.setState({
+        lists: JSON.parse(retrieve)
+      })
+
     } else {
       item = {
         food: 'No title',
