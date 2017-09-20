@@ -1,11 +1,25 @@
 .header {
     font-family: 'roboto';
     text-align: center;
+    font-weight: bold;
+}
+
+.header a {
+    text-decoration: none;
+    color: #07B7F5;
 }
 
 .main {
     width: 320px;
     margin: 0 auto
+}
+
+.muidocs-icon-custom-github:before {
+    content: "\e625";
+}
+
+#logo {
+    font-size: 20px;
 }
 
 .textCenter {
