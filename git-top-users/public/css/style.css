@@ -1,0 +1,48 @@
+.header {
+    background: yellow;
+    margin: 0;
+    padding: 50px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.header h1 {
+    font-weight: bolder;
+    color: black;
+    text-shadow: 0 1px 0 yellow, 0 2px 3px rgba(0, 0, 0, 0.7);
+}
+
+.footer {
+    background: yellow;
+    margin: 0;
+    padding: 1px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.footer p {
+    font-weight: bolder;
+    color: black;
+}
+
+.text-dark {
+    color: black;
+    background: yellow;
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.card-content {
+    font-weight: bold;
+}
+
+.card-content h6 {
+    font-weight: bold;
+}

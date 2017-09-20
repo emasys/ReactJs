@@ -1,0 +1,117 @@
+.header {
+    background: yellow;
+    margin: 0;
+    padding: 50px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.header h1 {
+    font-weight: bolder;
+    color: black;
+    text-shadow: 0 1px 0 yellow, 0 2px 3px rgba(0, 0, 0, 0.7);
+}
+
+.footer {
+    background: yellow;
+    margin: 0;
+    padding: 1px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.collection-item {
+    padding: 0 !important;
+}
+
+.collection-header {
+    background: yellow !important;
+}
+
+.collection {
+    border: 0 !important;
+    border-radius: 5px;
+}
+
+.collection-header h4 {
+    font-weight: bolder;
+    color: black;
+    text-shadow: 0 1px 0 yellow, 0 2px 3px rgba(0, 0, 0, 0.7);
+}
+
+.collection-item span {
+    font-weight: bolder;
+    background: lightgray;
+    color: black;
+    padding: 5px;
+    width: 100%;
+    display: block;
+}
+
+.imgBox {
+    margin-top: 7px;
+}
+
+.hidden {
+    display: none;
+}
+
+.imgBox img {
+    border-radius: 5px;
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.footer p {
+    font-weight: bolder;
+    color: black;
+}
+
+.text-dark {
+    color: black;
+    background: yellow;
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.card-content {
+    font-weight: bold;
+}
+
+.card-content h6 {
+    font-weight: bold;
+}
+
+.fade-appear {
+    opacity: 0.01;
+}
+
+.fade-appear.fade-appear-active {
+    opacity: 1;
+    transition: opacity .5s ease-in;
+}
+
+.fade-enter {
+    opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+.fade-leave {
+    opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}
