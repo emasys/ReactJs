@@ -1,9 +1,15 @@
-const initialState = [];
-
-export default function (state = initialState, action) {
+export default function (state = {}, action) {
     switch (action.type) {
         case 'SEARCH_CARS':
-            return action.payload;
+            return {
+                ...state,
+                list: action.payload
+            };
+        case 'CAR_DETAIL':
+            return {
+                ...state,
+                detail: action.payload
+            };
         default:
             return state;
 

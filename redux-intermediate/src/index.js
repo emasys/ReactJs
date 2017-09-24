@@ -6,7 +6,7 @@ import promise from 'redux-promise';
 import {Provider} from 'react-redux';
 import './index.css';
 import App from './components/app';
-import Car from './components/car';
+import Car from './containers/car';
 import reducers from './reducers'
 
 const store = applyMiddleware(promise)(createStore);
