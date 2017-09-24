@@ -3,13 +3,14 @@ import Sticky from 'react-sticky-el';
 
 //COMPONENTS
 import List from './components/list';
+
 const URL = 'https://newton.now.sh';
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       operation: 'factor',
-      expression: '1+1',
+      expression: '',
       solution: '',
       questions: []
     };
@@ -21,17 +22,21 @@ class App extends Component {
     this.calc = this
       .calc
       .bind(this);
+
+    this.handleForm = this
+      .handleForm
+      .bind(this);
   }
 
   fetchList = async() => {
     const req = await fetch(`${URL}/${this.state.operation}/${this.state.expression}`, {method: 'GET'});
     const data = await req.json();
     this.setState({solution: data});
-  }
+    this
+      .state
+      .questions
+      .push(data);
 
-  componentDidMount() {
-
-    this.fetchList();
   }
 
   selectedItem = (e) => {
@@ -40,22 +45,12 @@ class App extends Component {
 
   calc = (e) => {
     this.setState({expression: e.target.value});
+
   }
 
   handleForm = (e) => {
     e.preventDefault();
-    let x = {
-      operation: this.state.operation,
-      expression: this.state.expression,
-      solution: this.state.solution
-    }
-
-    this
-      .state
-      .questions
-      .push(x);
-
-    this.componentDidMount();
+    this.fetchList();
   }
   render() {
     return (

@@ -1,28 +1,26 @@
 import React from 'react';
 
 const getSolution = ({solution}) => {
-    solution.map((result, id) => {
+    console.log(solution);
+    return solution.map((result, id) => {
         return (
-            <div className="list">
+
+            <div className="list" key={id}>
+                {console.log(result)}
                 <div
                     className="card "
                     style={{
                     zIndex: '5'
                 }}>
                     <div className="card-header">
-                        <h3 >{solution.expression
-                                ? solution.expression
-                                : 'Question'}</h3>
+                        <h3 >{result.expression}</h3>
 
                     </div>
                     <div className="card-block">
-                        <span id="type">{solution.operation}</span>
-                        <span id="result">solution</span>
+                        <span id="result">{result.operation}</span>
 
                         <h5 className="card-text">
-                            {solution.result
-                                ? solution.result
-                                : 'Answer'}
+                            {result.result}
                         </h5>
                     </div>
                 </div>
