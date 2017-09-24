@@ -137,3 +137,15 @@ input[type="text"]:focus {
     color: white;
     border-radius: 5px;
 }
+
+.footer {
+    color: white;
+    background: #4972B0;
+    margin-top: 50px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.footer a {
+    color: white;
+}

@@ -3,6 +3,7 @@ import Sticky from 'react-sticky-el';
 
 //COMPONENTS
 import List from './components/list';
+import Footer from './components/footer';
 
 const URL = 'https://newton.now.sh';
 class App extends Component {
@@ -31,13 +32,15 @@ class App extends Component {
   fetchList = async() => {
     const req = await fetch(`${URL}/${this.state.operation}/${this.state.expression}`, {method: 'GET'});
     const data = await req.json();
-    this.setState({solution: data});
     this
       .state
       .questions
       .push(data);
+    this.setState({solution: data});
 
   }
+
+  componentDidMount() {}
 
   selectedItem = (e) => {
     this.setState({operation: e.target.value});
@@ -45,12 +48,13 @@ class App extends Component {
 
   calc = (e) => {
     this.setState({expression: e.target.value});
-
   }
 
   handleForm = (e) => {
     e.preventDefault();
     this.fetchList();
+    this.setState({expression: ''})
+
   }
   render() {
     return (
@@ -65,7 +69,7 @@ class App extends Component {
                       <div className="row">
                         <div className="col">
                           <select className="custom-select col-12" onChange={this.selectedItem}>
-                            <option value="factor" selected>Factorize</option>
+                            <option value="factor">Factorize</option>
                             <option value="simplify">Simplify</option>
                             <option value="derive">Derive</option>
                             <option value="integrate">Integrate</option>
@@ -73,7 +77,11 @@ class App extends Component {
                           </select>
                         </div>
                         <div className="col-8">
-                          <input type="text" placeholder="x^2+2x" onChange={this.calc}/>
+                          <input
+                            type="text"
+                            placeholder="x^2+2x"
+                            value={this.state.expression}
+                            onChange={this.calc}/>
                         </div>
                       </div>
                     </form>
@@ -82,6 +90,7 @@ class App extends Component {
               </Sticky>
             </div>
             <List solution={this.state.questions}/>
+            <Footer/>
           </div>
         </div>
 
