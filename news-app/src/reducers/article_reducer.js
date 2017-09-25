@@ -11,6 +11,17 @@ export default(state = {}, action) => {
                 ...state,
                 other: action.payload
             }
+        case 'SELECTED_NEWS':
+            return {
+                ...state,
+                selected: action.payload
+            }
+        case 'CLEAR_NEWS':
+            return {
+                ...state,
+                cleared: action.payload
+            }
+
         default:
             return state;
     }

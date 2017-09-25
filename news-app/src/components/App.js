@@ -7,6 +7,7 @@ import Footer from './footer';
 
 //Containers
 import Home from '../container/home';
+import News from '../container/news';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
         <div>
           <Header/>
           <Switch>
+            <Route path='/news/:id' component={News}/>
             <Route exact path='/' component={Home}/>
           </Switch>
           <Footer/>
